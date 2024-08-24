@@ -1,0 +1,17 @@
+version: "3.4"
+name: portfolio_front
+services:
+  portfolio_react_front:
+    container_name: portfolio_react_front
+    build: 
+      dockerfile: ./docker/dockerfile/Dockerfile
+      context: ../
+    restart: on-failure
+    volumes:
+      - ..:/var/www/app
+      - /var/www/app/node_modules
+      - ../package.json:/var/www/app/package.json
+    ports:
+      - "3000:3000"
+    environment:
+      - WATCHPACK_POLLING=true

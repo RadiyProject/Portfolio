@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  portfolio_react_front:
+    container_name: portfolio_react_front
+    build: 
+      dockerfile: ./docker/dockerfile/Dockerfile.prod
+      context: ../
+    restart: on-failure
+    volumes:
+      - ..:/var/www/app
+      - /var/www/app/node_modules
+      - ../package.json:/var/www/app/package.json
+    expose:
+      - 3000
