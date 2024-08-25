@@ -1,4 +1,4 @@
-version: "3.4"
+#version: "3.4"
 services:
   portfolio_react_front:
     container_name: portfolio_react_front
@@ -7,8 +7,14 @@ services:
       context: ../
     restart: on-failure
     volumes:
-      - ..:/var/www/app
-      - /var/www/app/node_modules
-      - ../package.json:/var/www/app/package.json
+      - ..:/var/www/html
+      - /var/www/html/node_modules
+    networks:
+      - radx
     expose:
       - 3000
+
+networks:
+  radx:
+    name: radx
+    external: true

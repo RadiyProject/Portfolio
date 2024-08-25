@@ -2,13 +2,13 @@ up:
 	cd docker && docker-compose -f docker-compose.yml up -d --build
 
 up-prod:
-	cd docker && docker-compose -f docker-compose.prod.yml up -d --build
+	cd docker && docker compose -f docker-compose.prod.yml up -d --build
 
 down:
 	cd docker && docker-compose -f docker-compose.yml down
 
 down-prod:
-	cd docker && docker-compose -f docker-compose.prod.yml down
+	cd docker && docker compose -f docker-compose.prod.yml down
 
 restart:
 	make down

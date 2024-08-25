@@ -1,4 +1,4 @@
-version: "3.4"
+#version: "3.4"
 name: portfolio_front
 services:
   portfolio_react_front:
@@ -7,10 +7,10 @@ services:
       dockerfile: ./docker/dockerfile/Dockerfile
       context: ../
     restart: on-failure
+    platform: linux/arm64
     volumes:
-      - ..:/var/www/app
-      - /var/www/app/node_modules
-      - ../package.json:/var/www/app/package.json
+      - ..:/var/www/html
+      - /var/www/html/node_modules
     ports:
       - "3000:3000"
     environment:
