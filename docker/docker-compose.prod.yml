@@ -11,8 +11,10 @@ services:
       - /var/www/html/node_modules
     networks:
       - radx
+    #ports:
+    #  - 3000:3000
     expose:
-      - 3000
+      - 80
 
 networks:
   radx:
