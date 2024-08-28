@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  /*return (
+  return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -26,8 +26,8 @@ function App() {
         </a>
       </header>
     </div>
-  );*/
-  return (
+  );
+  /*return (
     <Router>
       <div>
         <nav>
@@ -45,8 +45,8 @@ function App() {
         </nav>
 
         {/* A <Routes> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Routes>
+            renders the first one that matches the current URL. *///}
+        /*<Routes>
           <Route path="/about">
             <About />
           </Route>
@@ -62,7 +62,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
+  );*/
 }
 
 function Home() {

@@ -22,8 +22,10 @@ services:
     restart: on-failure
     networks:
       - radx
-    expose:
-      - 80
+    #expose:
+    #  - 80
+    ports:
+      - 3000:3000
     volumes:
       - ..:/var/www/html
       - /var/www/html/node_modules

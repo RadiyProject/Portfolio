@@ -1,0 +1,23 @@
+#version: "3.4"
+name: portfolio_front
+services:
+  portfolio_react_front:
+    container_name: portfolio_react_front
+    build: 
+      dockerfile: ./docker/dockerfile/Dockerfile
+      context: ../
+    restart: on-failure
+    networks:
+      - radx
+    volumes:
+      - ..:/var/www/html
+      - /var/www/html/node_modules
+    expose:
+      - 3000
+    environment:
+      - WATCHPACK_POLLING=true
+
+networks:
+  radx:
+    name: radx
+    external: true
