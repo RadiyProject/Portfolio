@@ -3,7 +3,7 @@ import './App.css';
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -44,9 +44,9 @@ function App() {
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
+        {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
+        <Routes>
           <Route path="/about">
             <About />
           </Route>
@@ -59,7 +59,7 @@ function App() {
           <Route path="*">
             <Home />
           </Route>
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
