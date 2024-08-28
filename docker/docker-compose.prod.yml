@@ -18,7 +18,7 @@ services:
 
   portfolio_nginx_front:
     container_name: portfolio_nginx_front
-    image: nginx:latest
+    image: nginx:1.27.1
     restart: on-failure
     networks:
       - radx
