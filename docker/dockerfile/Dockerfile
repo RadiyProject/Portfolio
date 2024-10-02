@@ -5,7 +5,7 @@ WORKDIR /var/www/html
 
 COPY package.json .
 COPY yarn.lock .
-RUN npm i
+RUN npm install
 
 COPY . .
 
