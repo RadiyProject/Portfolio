@@ -5,76 +5,63 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  useLocation
 } from "react-router-dom";
+
+import AboutMe from './Pages/AboutMe';
+import Users from './Pages/Users';
+import Header from './Pages/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-  /*return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Routes> looks through its children <Route>s and
-            renders the first one that matches the current URL. *///}
-        /*<Routes>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="*">
-            <Home />
-          </Route>
-        </Routes>
-      </div>
+      <QueryParams />
     </Router>
-  );*/
+  );
 }
 
-function Home() {
-  return <h2>Home</h2>;
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-function About() {
-  return <h2>About</h2>;
+function QueryParams() {
+  let query = useQuery();
+  let language = GetSupportedLocale(query.get("lang"));
+  
+  return <div>
+    <nav>
+      <ul>
+        <Header lang={language} location={window.location.href} />
+      </ul>
+    </nav>
+
+    {/* A <Routes> looks through its children <Route>s and
+        renders the first one that matches the current URL. */}
+
+    
+    <Routes>
+      <Route path="/about" element={<AboutMe lang={language} />} />
+      <Route path="/users" element={<Users lang={language} />} />
+      <Route path="/*" element={<AboutMe lang={language} />} />
+    </Routes>
+  </div>
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function GetSupportedLocale(language) {
+  if (language === null || language === undefined)
+    var language = window.navigator.userLanguage || window.navigator.language;
+  switch(language) {
+    case "en":
+    case "eng":
+        return "eng";
+    case "ru":
+    case "rus":
+        return "ru";
+    default:
+      return "eng";
+  }
 }
 
 export default App;
