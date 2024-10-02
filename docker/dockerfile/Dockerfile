@@ -4,7 +4,7 @@ ENV NODE_ENV development
 WORKDIR /var/www/html
 
 COPY package.json .
-COPY yarn.json .
+COPY yarn.lock .
 RUN npm i
 
 COPY . .
