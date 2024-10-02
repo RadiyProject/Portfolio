@@ -1,8 +1,12 @@
 up:
 	cd docker && docker-compose -f docker-compose.yml up -d --build
 
+build-prod:
+	cd docker && docker compose -f docker-compose.prod.yml build
+
+
 up-prod:
-	cd docker && docker compose -f docker-compose.prod.yml up -d --build
+	cd docker && docker run --name portfolio_react_front portfolio_react_front_image
 
 up-stage:
 	cd docker && docker compose -f docker-compose.stage.yml up -d --build

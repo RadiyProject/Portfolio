@@ -1,36 +1,15 @@
-#version: "3.4"
 services:
   portfolio_react_front:
     container_name: portfolio_react_front
+    image: portfolio_react_front_image
     build: 
       dockerfile: ./docker/dockerfile/Dockerfile.prod
       context: ../
     restart: on-failure
-    volumes:
-      - ..:/var/www/html
-      - /var/www/html/node_modules
     networks:
       - radx
-    #ports:
-    #  - 3000:3000
-    #expose:
-    #  - 3000
-
-  portfolio_nginx_front:
-    container_name: portfolio_nginx_front
-    image: nginx:1.27.1
-    restart: on-failure
-    networks:
-      - radx
-    #expose:
-    #  - 80
-    ports:
-      - 3000:3000
-    volumes:
-      - ..:/var/www/html
-      - /var/www/html/node_modules
-      - ./logs:/var/log/nginx
-      - ./config/nginx:/etc/nginx/conf.d
+    expose:
+      - 3000
 
 networks:
   radx:

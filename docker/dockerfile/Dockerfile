@@ -1,9 +1,14 @@
-FROM node:18-alpine
+FROM node:18-alpine as development
+ENV NODE_ENV development
 
 WORKDIR /var/www/html
 
-COPY package*.json ./
-RUN npm install
-#RUN npm install --global yarn
+COPY package.json .
+COPY yarn.json .
+RUN npm i
 
-CMD [ "npm", "start" ]
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "yarn", "start" ]
