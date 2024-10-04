@@ -1,6 +1,8 @@
 import {
     useNavigate
 } from "react-router-dom";
+import Button from '@mui/material/Button';
+
 
 function changeQueryParams(location, param, value) {
     let url = new URL(location);
@@ -29,8 +31,8 @@ function ChangeLanguageButton(props) {
     let navigate = useNavigate();
 
     let language = require(`../../Localizations/Elements/Buttons/ChangeLanguageButton/${props.lang}.json`);
-    return <button onClick={() => onClick(navigate, props.location, props.lang)}>
+    return <Button variant="contained" onClick={() => onClick(navigate, props.location, props.lang)}>
         {language.name}
-    </button>;
+    </Button>;
 }
 export default ChangeLanguageButton;

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import {
@@ -9,8 +8,9 @@ import {
 } from "react-router-dom";
 
 import AboutMe from './Pages/AboutMe';
-import Users from './Pages/Users';
 import Header from './Pages/Header';
+import List from '@mui/material/List';
+import APITest from './Pages/APITest';
 
 function App() {
   return (
@@ -32,9 +32,9 @@ function QueryParams() {
   
   return <div>
     <nav>
-      <ul>
+      <List>
         <Header lang={language} location={window.location.href} />
-      </ul>
+      </List>
     </nav>
 
     {/* A <Routes> looks through its children <Route>s and
@@ -43,7 +43,7 @@ function QueryParams() {
     
     <Routes>
       <Route path="/about" element={<AboutMe lang={language} />} />
-      <Route path="/users" element={<Users lang={language} />} />
+      <Route path="/api/test" element={<APITest lang={language} />} />
       <Route path="/*" element={<AboutMe lang={language} />} />
     </Routes>
   </div>
@@ -51,7 +51,7 @@ function QueryParams() {
 
 function GetSupportedLocale(language) {
   if (language === null || language === undefined)
-    var language = window.navigator.userLanguage || window.navigator.language;
+    language = window.navigator.userLanguage || window.navigator.language;
   switch(language) {
     case "en":
     case "eng":
