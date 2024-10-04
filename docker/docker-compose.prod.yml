@@ -8,8 +8,8 @@ services:
     restart: on-failure
     networks:
       - radx
-    expose:
-      - 3000
+    ports:
+      - "8080:80"
 
 networks:
   radx:
