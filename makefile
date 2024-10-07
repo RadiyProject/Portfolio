@@ -6,7 +6,7 @@ build-prod:
 
 
 up-prod:
-	cd docker && docker run -d --expose 8080 --name portfolio_react_front portfolio_react_front_image
+	cd docker && docker run -d --expose 3000 --name portfolio_react_front portfolio_react_front_image
 
 up-stage:
 	cd docker && docker compose -f docker-compose.stage.yml up -d --build

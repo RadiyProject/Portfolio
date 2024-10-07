@@ -9,7 +9,7 @@ services:
     networks:
       - radx
     ports:
-      - "8080:80"
+      - "3000:80"
 
 networks:
   radx:
