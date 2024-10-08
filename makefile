@@ -1,12 +1,8 @@
 up:
 	cd docker && docker-compose -f docker-compose.yml up -d --build
 
-build-prod:
-	cd docker && docker compose -f docker-compose.prod.yml build
-
-
 up-prod:
-	cd docker && docker run -d --expose 3000 --name portfolio_react_front portfolio_react_front_image
+	cd docker && docker compose -f docker-compose.prod.yml up -d --build
 
 up-stage:
 	cd docker && docker compose -f docker-compose.stage.yml up -d --build
@@ -15,7 +11,7 @@ down:
 	cd docker && docker-compose -f docker-compose.yml down
 
 down-prod:
-	cd docker && docker remove --force portfolio_react_front
+	cd docker && docker-compose -f docker-compose.prod.yml down
 
 down-stage:
 	cd docker && docker compose -f docker-compose.stage.yml down
