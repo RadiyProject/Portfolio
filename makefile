@@ -8,10 +8,10 @@ up-stage:
 	cd docker && docker compose -f docker-compose.stage.yml up -d --build
 
 down:
-	cd docker && docker-compose -f docker-compose.yml down
+	cd docker && docker compose -f docker-compose.yml down
 
 down-prod:
-	cd docker && docker-compose -f docker-compose.prod.yml down
+	cd docker && docker compose -f docker-compose.prod.yml down
 
 down-stage:
 	cd docker && docker compose -f docker-compose.stage.yml down
