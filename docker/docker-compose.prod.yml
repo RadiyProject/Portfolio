@@ -9,7 +9,7 @@ services:
     networks:
       - radx
     expose:
-      - 3000
+      - 80
 
 networks:
   radx:
